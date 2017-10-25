@@ -1,1 +1,5 @@
-com\myweb\duty_rostering_core_persistence_data\App.class
+com\myweb\core\persistence\enity\Roster.class
+com\myweb\core\persistence\enity\Date.class
+com\myweb\core\persistence\enity\RosterId.class
+com\myweb\core\persistence\enity\ShiftType.class
+com\myweb\core\persistence\enity\Employee.class

@@ -11,4 +11,12 @@
   <artifactId>duty-rostering-web</artifactId> 
   <name>duty-rostering-web Maven Webapp</name>
   <packaging>war</packaging>
+  
+  <dependencies>
+  	<dependency>
+  		<groupId>com.myweb</groupId>
+  		<artifactId>duty-rostering-core-persistence-data</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
+  	</dependency>
+  </dependencies>
 </project>
