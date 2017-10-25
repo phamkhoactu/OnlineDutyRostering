@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="301473" started-at="2017-10-25T22:19:23Z" finished-at="2017-10-25T22:24:24Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="301473" started-at="2017-10-25T22:19:23Z" finished-at="2017-10-25T22:24:24Z">
+      <class name="com.myweb.core.test.ShiftTypeTest">
+        <test-method status="PASS" signature="checkFindAll()[pri:0, instance:com.myweb.core.test.ShiftTypeTest@ef9296d]" name="checkFindAll" duration-ms="301415" started-at="2017-10-26T05:19:23Z" finished-at="2017-10-26T05:24:24Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkFindAll -->
+      </class> <!-- com.myweb.core.test.ShiftTypeTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

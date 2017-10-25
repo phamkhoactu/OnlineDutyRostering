@@ -27,11 +27,11 @@
 			true
 		</property>
 		
-		<mapping class="com.myweb.core.persistence.enity.Date"/>
-		<mapping class="com.myweb.core.persistence.enity.ShiftType"/>
-		<mapping class="com.myweb.core.persistence.enity.Employee"/>
-		<mapping class="com.myweb.core.persistence.enity.RosterId"/>
-		<mapping class="com.myweb.core.persistence.enity.Roster"/>
+		<mapping class="com.myweb.core.persistence.entity.DateEntity"/>
+		<mapping class="com.myweb.core.persistence.entity.ShiftTypeEntity"/>
+		<mapping class="com.myweb.core.persistence.entity.EmployeeEntity"/>
+		<mapping class="com.myweb.core.persistence.entity.RosterIdEntity"/>
+		<mapping class="com.myweb.core.persistence.entity.RosterEntity"/>
 	</session-factory>
 
 </hibernate-configuration>

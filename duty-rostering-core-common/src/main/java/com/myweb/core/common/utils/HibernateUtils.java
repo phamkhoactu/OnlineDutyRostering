@@ -11,8 +11,8 @@ public class HibernateUtils {
 			return new Configuration().configure().buildSessionFactory();
 			
 		} catch (Throwable e) {
-			System.out.println("Initial Session Factory Fail");
-			throw new ExceptionInInitializerError();
+			System.out.println("Initial Session Factory Fail" + e);
+			throw new ExceptionInInitializerError(e);
 		}
 	}
 	

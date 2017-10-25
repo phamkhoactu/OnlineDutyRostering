@@ -1,1 +1,2 @@
-com\myweb\duty_rostering_core_data\App.class
+com\myweb\core\data\daoimpl\AbstractDao.class
+com\myweb\core\data\dao\GenericDao.class

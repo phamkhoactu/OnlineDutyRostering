@@ -1,5 +1,5 @@
-com\myweb\core\persistence\enity\Roster.class
-com\myweb\core\persistence\enity\Date.class
-com\myweb\core\persistence\enity\RosterId.class
-com\myweb\core\persistence\enity\ShiftType.class
-com\myweb\core\persistence\enity\Employee.class
+com\myweb\core\persistence\entity\RosterEntity.class
+com\myweb\core\persistence\entity\DateEntity.class
+com\myweb\core\persistence\entity\ShiftTypeEntity.class
+com\myweb\core\persistence\entity\EmployeeEntity.class
+com\myweb\core\persistence\entity\RosterIdEntity.class

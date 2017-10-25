@@ -13,5 +13,11 @@
 	<artifactId>duty-rostering-core-dao-impl</artifactId>
 	<name>duty-rostering-core-dao-impl</name>
 
-
+	<dependencies>
+	<dependency>
+			<groupId>com.myweb</groupId>
+			<artifactId>duty-rostering-core-dao</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+	</dependencies>
 </project>

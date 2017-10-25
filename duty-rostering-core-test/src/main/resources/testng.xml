@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="TestAll">
+	<test name="Case1">
+		<classes>
+			<class name="com.myweb.core.test.ShiftTypeTest" />
+		</classes>
+	</test>
+
+</suite>
