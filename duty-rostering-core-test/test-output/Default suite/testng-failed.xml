@@ -5,7 +5,7 @@
     <classes>
       <class name="com.myweb.core.test.ShiftTypeTest">
         <methods>
-          <include name="checkFindByProperty"/>
+          <include name="checkDelete"/>
         </methods>
       </class> <!-- com.myweb.core.test.ShiftTypeTest -->
     </classes>
