@@ -22,7 +22,7 @@ public class AbstractDao<ID extends Serializable, T> implements GenericDao<ID, T
 	public AbstractDao() {
 		this.persistenceClass = (Class<T>) ((ParameterizedType) getClass().getGenericSuperclass())
 				.getActualTypeArguments()[1];
-	}
+	}         
 
 	public String getPersistenceClassName() {
 		return persistenceClass.getSimpleName();
