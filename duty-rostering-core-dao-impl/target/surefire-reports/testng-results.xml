@@ -2,10 +2,10 @@
 <testng-results skipped="0" failed="0" total="0" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="com.myweb.duty_rostering_core_dao_impl.AppTest" duration-ms="2" started-at="2017-10-25T22:29:25Z" finished-at="2017-10-25T22:29:25Z">
+  <suite name="com.myweb.duty_rostering_core_dao_impl.AppTest" duration-ms="1" started-at="2017-10-26T12:02:35Z" finished-at="2017-10-26T12:02:35Z">
     <groups>
     </groups>
-    <test name="Command line test" duration-ms="2" started-at="2017-10-25T22:29:25Z" finished-at="2017-10-25T22:29:25Z">
+    <test name="Command line test" duration-ms="1" started-at="2017-10-26T12:02:35Z" finished-at="2017-10-26T12:02:35Z">
     </test> <!-- Command line test -->
   </suite> <!-- com.myweb.duty_rostering_core_dao_impl.AppTest -->
 </testng-results>

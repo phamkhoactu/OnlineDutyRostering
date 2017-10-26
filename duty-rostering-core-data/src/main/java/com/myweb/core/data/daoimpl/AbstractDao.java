@@ -10,22 +10,20 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import com.myweb.core.common.constant.CoreConstant;
 import com.myweb.core.common.utils.HibernateUtils;
 import com.myweb.core.data.dao.GenericDao;
 
+import javassist.tools.rmi.ObjectNotFoundException;
+
 public class AbstractDao<ID extends Serializable, T> implements GenericDao<ID, T> {
 	private Class<T> persistenceClass;
-	
-	
-	
+
 	public AbstractDao() {
-		this.persistenceClass =  (Class<T>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[1];
+		this.persistenceClass = (Class<T>) ((ParameterizedType) getClass().getGenericSuperclass())
+				.getActualTypeArguments()[1];
 	}
 
-	protected Session getSession() {
-		return HibernateUtils.getSessionFactory().openSession();
-	}
-	
 	public String getPersistenceClassName() {
 		return persistenceClass.getSimpleName();
 	}
@@ -34,12 +32,14 @@ public class AbstractDao<ID extends Serializable, T> implements GenericDao<ID, T
 	public List<T> findAll() {
 		List<T> list = new ArrayList<T>();
 		Transaction transaction = null;
+		Session session = null;
 		try {
-			transaction = getSession().beginTransaction();
-			//HQL
+			session = HibernateUtils.getSessionFactory().openSession();
+			transaction = session.beginTransaction();
+			// HQL
 			StringBuilder sql = new StringBuilder("from ");
 			sql.append(this.getPersistenceClassName());
-			Query query = this.getSession().createQuery(sql.toString());
+			Query query = session.createQuery(sql.toString());
 			list = query.list();
 			transaction.commit();
 		} catch (HibernateException e) {
@@ -47,10 +47,123 @@ public class AbstractDao<ID extends Serializable, T> implements GenericDao<ID, T
 			System.out.println("Running findAll() fail\n");
 			throw e;
 		} finally {
-			
+			session.close();
 		}
-		
+
 		return list;
+	}
+
+	@Override
+	public T update(T entity) {
+		T result = null;
+		Transaction transaction = null;
+		Session session = null;
+		try {
+			session = HibernateUtils.getSessionFactory().openSession();
+			transaction = session.beginTransaction();
+			Object object = session.merge(entity);
+			result = (T) object;
+			transaction.commit();
+		} catch (HibernateException he) {
+			transaction.rollback();
+			System.out.println("Running update() fail\n");
+			throw he;
+
+		} finally {
+			session.close();
+		}
+		// TODO Auto-generated method stub
+		return result;
+	}
+
+	@Override
+	public void save(T entity) {
+		Transaction transaction = null;
+		Session session = null;
+		try {
+			session = HibernateUtils.getSessionFactory().openSession();
+			transaction = session.beginTransaction();
+			session.persist(entity);
+			transaction.commit();
+		} catch (HibernateException he) {
+			transaction.rollback();
+			System.out.println("Running save() fail\n");
+			throw he;
+
+		} finally {
+			session.close();
+		}
+	
+	}
+
+	@Override
+	public T findById(ID id){
+		T result = null;
+		Transaction transaction = null;
+		Session session = null;
+		try {
+			session = HibernateUtils.getSessionFactory().openSession();
+			transaction = session.beginTransaction();
+			result = (T) session.get(persistenceClass, id);
+			if(result == null) {
+				throw new ObjectNotFoundException("Not Found "+ id, null);
+			}
+		} catch (HibernateException he) {
+			transaction.rollback();
+			System.out.println("Running findById() fail\n");
+			throw he;
+
+		} catch (ObjectNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+		// TODO Auto-generated method stub
+		return result;
+	}
+
+	@Override
+	public Object[] findByProperty(String property, Object value, String sortExpression, String sortDirection) {
+		List<T> list = new ArrayList<T>();
+		Transaction transaction = null;
+		Session session = null;
+		Object totalItem = null;
+		try {
+			totalItem = 0;
+			session = HibernateUtils.getSessionFactory().openSession();
+			transaction = session.beginTransaction();
+			StringBuilder sql1 = new StringBuilder("from ");
+			sql1.append(this.getPersistenceClassName());
+			if(property != null && value != null) {
+				sql1.append(" where ").append(property).append("= :value");
+			}
+			
+			if(sortExpression != null && sortDirection != null) {
+				sql1.append(" order by ").append(sortDirection);
+				sql1.append(" "+(sortDirection.equals(CoreConstant.SORT_ASC) ? "asc" : "desc"));
+				
+			}
+			Query query1 = session.createQuery(sql1.toString());
+			query1.setParameter("value", value);
+			list = query1.list();
+			StringBuilder sql2 = new StringBuilder("select count(*) from ");
+			sql2.append(this.getPersistenceClassName());
+			sql2.append(" where ").append(property).append("= :value");
+			Query query2 = session.createQuery(sql2.toString());
+			query2.setParameter("value", value);
+			totalItem = query2.list().get(0);
+			transaction.commit();
+			
+		} catch (HibernateException he) {
+			transaction.rollback();
+			System.out.println("Running findByProperty() fail\n");
+			throw he;
+
+		} finally {
+			session.close();
+		}
+		return new Object[] {totalItem,list};
 	}
 
 }
