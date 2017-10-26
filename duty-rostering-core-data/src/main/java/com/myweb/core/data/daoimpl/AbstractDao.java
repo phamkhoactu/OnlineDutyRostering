@@ -1,5 +1,5 @@
 package com.myweb.core.data.daoimpl;
-
+ 
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
 import java.util.ArrayList;
