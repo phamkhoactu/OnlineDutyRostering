@@ -7,6 +7,15 @@
         <dependent-module archiveName="duty-rostering-core-persistence-data-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/duty-rostering-core-persistence-data/duty-rostering-core-persistence-data">
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module archiveName="duty-rostering-web-logic-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/duty-rostering-web-logic/duty-rostering-web-logic">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="duty-rostering-core-dto-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/duty-rostering-core-dto/duty-rostering-core-dto">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="duty-rostering-core-web-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/duty-rostering-core-web/duty-rostering-core-web">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <property name="context-root" value="duty-rostering-web"/>
         <property name="java-output-path" value="/duty-rostering-web/target/classes"/>
     </wb-module>

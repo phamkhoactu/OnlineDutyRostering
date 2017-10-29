@@ -1,1 +1,3 @@
-com\myweb\web\logic\controller\TestController.class
+com\myweb\controller\admin\AdminController.class
+com\myweb\controller\web\HomeController.class
+com\myweb\controller\admin\LoginController.class

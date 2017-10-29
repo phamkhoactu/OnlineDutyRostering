@@ -11,4 +11,18 @@
 	</parent>
 	<artifactId>duty-rostering-core-utils</artifactId>
 	<name>duty-rostering-core-utils</name>
+	
+	<dependencies>
+		<dependency>
+		<groupId>com.myweb</groupId>
+		<artifactId>duty-rostering-core-dto</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		
+		<dependency>
+		 <groupId>com.myweb</groupId>
+		 <artifactId>duty-rostering-core-persistence-data</artifactId>
+		 <version>0.0.1-SNAPSHOT</version>
+		</dependency>
+	</dependencies>
 </project>

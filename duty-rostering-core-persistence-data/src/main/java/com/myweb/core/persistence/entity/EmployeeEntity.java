@@ -20,7 +20,7 @@ import javax.persistence.UniqueConstraint;
  */
 @Entity
 @Table(name = "employee", catalog = "dutyrostering", uniqueConstraints = @UniqueConstraint(columnNames = "USERNAME"))
-public class EmployeeEntity{
+public class EmployeeEntity {
 
 	private short empId;
 	private String username;
@@ -34,8 +34,8 @@ public class EmployeeEntity{
 	public EmployeeEntity() {
 	}
 
-	public EmployeeEntity(short empId, String username, String password, String fullName, Date createDate, boolean isActive,
-			boolean isAdmin) {
+	public EmployeeEntity(short empId, String username, String password, String fullName, Date createDate,
+			boolean isActive, boolean isAdmin) {
 		this.empId = empId;
 		this.username = username;
 		this.password = password;
@@ -45,8 +45,8 @@ public class EmployeeEntity{
 		this.isAdmin = isAdmin;
 	}
 
-	public EmployeeEntity(short empId, String username, String password, String fullName, Date createDate, boolean isActive,
-			boolean isAdmin, List<RosterEntity> rosterEntities) {
+	public EmployeeEntity(short empId, String username, String password, String fullName, Date createDate,
+			boolean isActive, boolean isAdmin, List<RosterEntity> rosterEntities) {
 		this.empId = empId;
 		this.username = username;
 		this.password = password;
