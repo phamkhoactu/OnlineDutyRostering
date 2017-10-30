@@ -13,4 +13,29 @@
 
 	<name>duty-rostering-core-service-impl</name>
 
+	<dependencies>
+		<dependency>
+			<groupId>com.myweb</groupId>
+			<artifactId>duty-rostering-core-dao</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.myweb</groupId>
+			<artifactId>duty-rostering-core-service</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.myweb</groupId>
+			<artifactId>duty-rostering-core-dao-impl</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.myweb</groupId>
+			<artifactId>duty-rostering-core-utils</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+	</dependencies>
 </project>

@@ -6,6 +6,16 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import org.apache.log4j.Logger;
+
+import com.myweb.command.EmployeeCommand;
+import com.myweb.core.dto.EmployeeDTO;
+import com.myweb.core.service.EmployeeService;
+import com.myweb.core.service.impl.EmployeeServiceImpl;
+import com.myweb.core.web.common.WebConstant;
+import com.myweb.core.web.utils.FormUtil;
+
 import java.io.IOException;
 
 /**
@@ -13,12 +23,44 @@ import java.io.IOException;
  */
 @WebServlet("/login.html")
 public class LoginController extends HttpServlet {
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        RequestDispatcher rd = request.getRequestDispatcher("/views/web/login.jsp");
-        rd.forward(request, response);
-    }
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-    }
+	private final Logger log = Logger.getLogger(this.getClass());
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		RequestDispatcher rd = request.getRequestDispatcher("/views/web/login.jsp");
+		rd.forward(request, response);
+
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		System.out.println("check");
+		EmployeeCommand command = FormUtil.populate(EmployeeCommand.class, request);
+		EmployeeDTO pojo = command.getPojo();
+		System.out.println(pojo.getEmpId());
+		EmployeeService empService = new EmployeeServiceImpl();
+
+		try {
+			if (empService.isEmployeeExist(pojo) != null) {
+				if (empService.findAdminEmployee(pojo) != null) {
+					if (empService.findAdminEmployee(pojo).isAdmin() == WebConstant.ROLE_ADMIN) {
+						request.setAttribute(WebConstant.ALERT, WebConstant.TYPE_SUCCESS);
+						request.setAttribute(WebConstant.MESSAGE_RESPONSE, "Bạn là admin");
+					} else if (empService.findAdminEmployee(pojo).isAdmin() == WebConstant.ROLE_USER) {
+						request.setAttribute(WebConstant.ALERT, WebConstant.TYPE_SUCCESS);
+						request.setAttribute(WebConstant.MESSAGE_RESPONSE, "Bạn là User");
+					}
+				}
+			}
+
+		} catch (Exception e) {
+			log.error(e.getMessage(), e);
+			request.setAttribute(WebConstant.ALERT, WebConstant.TYPE_ERROR);
+			request.setAttribute(WebConstant.MESSAGE_RESPONSE, "Tên hoặc mật khẩu sai");
+		}
+
+		RequestDispatcher rd = request.getRequestDispatcher("/views/web/login.jsp");
+		rd.forward(request, response);
+		
+	}
 }

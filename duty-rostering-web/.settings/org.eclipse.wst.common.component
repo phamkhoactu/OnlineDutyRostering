@@ -16,6 +16,27 @@
         <dependent-module archiveName="duty-rostering-core-web-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/duty-rostering-core-web/duty-rostering-core-web">
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module archiveName="duty-rostering-core-service-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/duty-rostering-core-service/duty-rostering-core-service">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="duty-rostering-core-service-impl-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/duty-rostering-core-service-impl/duty-rostering-core-service-impl">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="duty-rostering-core-dao-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/duty-rostering-core-dao/duty-rostering-core-dao">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="duty-rostering-core-data-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/duty-rostering-core-data/duty-rostering-core-data">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="duty-rostering-core-common-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/duty-rostering-core-common/duty-rostering-core-common">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="duty-rostering-core-dao-impl-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/duty-rostering-core-dao-impl/duty-rostering-core-dao-impl">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="duty-rostering-core-utils-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/duty-rostering-core-utils/duty-rostering-core-utils">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <property name="context-root" value="duty-rostering-web"/>
         <property name="java-output-path" value="/duty-rostering-web/target/classes"/>
     </wb-module>
