@@ -1,1 +1,2 @@
-com\myweb\duty_rostering_core_dto\App.class
+com\myweb\core\dto\ShiftTypeDTO.class
+com\myweb\core\dto\EmployeeDTO.class

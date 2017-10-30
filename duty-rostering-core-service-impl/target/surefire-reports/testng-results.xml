@@ -2,10 +2,10 @@
 <testng-results skipped="0" failed="0" total="0" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="com.myweb.duty_rostering_core_service_impl.AppTest" duration-ms="0" started-at="2017-10-27T17:10:23Z" finished-at="2017-10-27T17:10:23Z">
+  <suite name="com.myweb.duty_rostering_core_service_impl.AppTest" duration-ms="2" started-at="2017-10-30T05:30:07Z" finished-at="2017-10-30T05:30:07Z">
     <groups>
     </groups>
-    <test name="Command line test" duration-ms="0" started-at="2017-10-27T17:10:23Z" finished-at="2017-10-27T17:10:23Z">
+    <test name="Command line test" duration-ms="2" started-at="2017-10-30T05:30:07Z" finished-at="2017-10-30T05:30:07Z">
     </test> <!-- Command line test -->
   </suite> <!-- com.myweb.duty_rostering_core_service_impl.AppTest -->
 </testng-results>

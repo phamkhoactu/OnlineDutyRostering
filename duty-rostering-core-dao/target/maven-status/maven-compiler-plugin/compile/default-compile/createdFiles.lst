@@ -1,1 +1,3 @@
 com\myweb\core\dao\ShiftTypeDao.class
+com\myweb\core\dao\EmployeeDao.class
+com\myweb\core\dao\DateDao.class
