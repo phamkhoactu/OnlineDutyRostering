@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="2" passed="2">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="1504" started-at="2017-10-30T16:36:45Z" finished-at="2017-10-30T16:36:47Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="1504" started-at="2017-10-30T16:36:45Z" finished-at="2017-10-30T16:36:47Z">
+      <class name="com.myweb.api.test.LoginTest">
+        <test-method status="PASS" signature="checkFindAdminEmployee()[pri:0, instance:com.myweb.api.test.LoginTest@4f7d0008]" name="checkFindAdminEmployee" duration-ms="1488" started-at="2017-10-30T23:36:45Z" finished-at="2017-10-30T23:36:47Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkFindAdminEmployee -->
+        <test-method status="PASS" signature="checkIsEmployeeExist()[pri:0, instance:com.myweb.api.test.LoginTest@4f7d0008]" name="checkIsEmployeeExist" duration-ms="0" started-at="2017-10-30T23:36:47Z" finished-at="2017-10-30T23:36:47Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkIsEmployeeExist -->
+      </class> <!-- com.myweb.api.test.LoginTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

@@ -1,0 +1,7 @@
+<suite name="TestAll">
+     <test name="case1">
+         <classes>
+-            <class name="com.myweb.api.test.ApiTest" />
+         </classes>
+     </test>
+ </suite>
