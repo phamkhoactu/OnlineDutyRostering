@@ -12,7 +12,7 @@
   <meta name="author" content="">
   <title><dec:title default="Login page"/></title>
   <!-- Bootstrap core CSS-->
-  <link href="<c:url value='template/admin/vendor/bootstrap/css/bootstrap.min.css'/>" rel="stylesheet">
+  <link href="<c:url value='/template/admin/vendor/bootstrap/css/bootstrap.min.css'/>" rel="stylesheet">
   <!-- Custom fonts for this template-->
   <link href="<c:url value='/template/admin/vendor/font-awesome/css/font-awesome.min.css'/>" rel="stylesheet" type="text/css">
   <!-- Custom styles for this template-->

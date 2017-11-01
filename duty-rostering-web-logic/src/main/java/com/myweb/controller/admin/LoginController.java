@@ -44,11 +44,9 @@ public class LoginController extends HttpServlet {
 			if (empService.isEmployeeExist(pojo) != null) {
 				if (empService.findAdminEmployee(pojo) != null) {
 					if (empService.findAdminEmployee(pojo).isAdmin() == WebConstant.ROLE_ADMIN) {
-						request.setAttribute(WebConstant.ALERT, WebConstant.TYPE_SUCCESS);
-						request.setAttribute(WebConstant.MESSAGE_RESPONSE, "Bạn là admin");
+						response.sendRedirect("admin-home.html");
 					} else if (empService.findAdminEmployee(pojo).isAdmin() == WebConstant.ROLE_USER) {
-						request.setAttribute(WebConstant.ALERT, WebConstant.TYPE_SUCCESS);
-						request.setAttribute(WebConstant.MESSAGE_RESPONSE, "Bạn là User");
+						response.sendRedirect("home.html");
 					}
 				}
 			}
@@ -57,10 +55,9 @@ public class LoginController extends HttpServlet {
 			log.error(e.getMessage(), e);
 			request.setAttribute(WebConstant.ALERT, WebConstant.TYPE_ERROR);
 			request.setAttribute(WebConstant.MESSAGE_RESPONSE, "Tên hoặc mật khẩu sai");
+			RequestDispatcher rd = request.getRequestDispatcher("/views/web/login.jsp");
+			rd.forward(request, response);
 		}
 
-		RequestDispatcher rd = request.getRequestDispatcher("/views/web/login.jsp");
-		rd.forward(request, response);
-		
 	}
 }
