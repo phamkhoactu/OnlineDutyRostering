@@ -1,0 +1,5 @@
+com\myweb\core\web\utils\RequestUtil.class
+com\myweb\core\web\utils\FormUtil.class
+com\myweb\core\web\common\WebConstant.class
+com\myweb\core\web\utils\TestUtils.class
+com\myweb\core\web\command\AbstractCommand.class

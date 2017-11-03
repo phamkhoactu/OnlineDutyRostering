@@ -1,5 +1,5 @@
 package com.myweb.core.data.daoimpl;
- 
+
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
 import java.util.ArrayList;
@@ -124,7 +124,8 @@ public class AbstractDao<ID extends Serializable, T> implements GenericDao<ID, T
 	}
 
 	@Override
-	public Object[] findByProperty(String property, Object value, String sortExpression, String sortDirection) {
+	public Object[] findByProperty(String property, Object value, String sortExpression, String sortDirection,
+			Integer offset, Integer limit) {
 		List<T> list = new ArrayList<T>();
 		Transaction transaction = null;
 		Session session = null;
@@ -133,8 +134,9 @@ public class AbstractDao<ID extends Serializable, T> implements GenericDao<ID, T
 			totalItem = 0;
 			session = HibernateUtils.getSessionFactory().openSession();
 			transaction = session.beginTransaction();
-			StringBuilder sql1 = new StringBuilder("from ");
-			sql1.append(this.getPersistenceClassName());
+
+			StringBuilder sql1 = new StringBuilder(" from ");
+			sql1.append(getPersistenceClassName());
 			if (property != null && value != null) {
 				sql1.append(" where ").append(property).append("= :value");
 			}
@@ -145,13 +147,28 @@ public class AbstractDao<ID extends Serializable, T> implements GenericDao<ID, T
 
 			}
 			Query query1 = session.createQuery(sql1.toString());
-			query1.setParameter("value", value);
+			if (value != null) {
+				query1.setParameter("value", value);
+			}
+
+			if (offset != null && offset >= 0) {
+				query1.setFirstResult(offset);
+			}
+			if (limit != null && limit > 0) {
+				query1.setMaxResults(limit);
+			}
+
 			list = query1.list();
 			StringBuilder sql2 = new StringBuilder("select count(*) from ");
-			sql2.append(this.getPersistenceClassName());
-			sql2.append(" where ").append(property).append("= :value");
+			sql2.append(getPersistenceClassName());
+			if (property != null && value != null) {
+				sql2.append(" where ").append(property).append("= :value");
+			}
 			Query query2 = session.createQuery(sql2.toString());
-			query2.setParameter("value", value);
+
+			if (value != null) {
+				query2.setParameter("value", value);
+			}
 			totalItem = query2.list().get(0);
 			transaction.commit();
 

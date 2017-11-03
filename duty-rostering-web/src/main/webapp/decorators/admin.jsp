@@ -14,9 +14,8 @@
 <meta name="author" content="">
 <title><dec:title default="Admin Page" /></title>
 <!-- Bootstrap core CSS-->
-<link
-	href="<c:url value='/template/admin/vendor/bootstrap/css/bootstrap.min.css'/>"
-	rel="stylesheet">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 <!-- Custom fonts for this template-->
 <link
 	href="<c:url value='/template/admin/vendor/font-awesome/css/font-awesome.min.css' /> "
@@ -35,7 +34,7 @@
 	<!-- Navigation-->
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top"
 		id="mainNav">
-		<a class="navbar-brand" href="admin-home.html"><fmt:message key="label.home" bundle="${lang}"/></a>
+		<a class="navbar-brand" href="admin-home.html"><fmt:message key="label.home" bundle="${lang}"/> [TÊN]</a>
 		<button class="navbar-toggler navbar-toggler-right" type="button"
 			data-toggle="collapse" data-target="#navbarResponsive"
 			aria-controls="navbarResponsive" aria-expanded="false"

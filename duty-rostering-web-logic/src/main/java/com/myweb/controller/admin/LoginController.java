@@ -42,11 +42,11 @@ public class LoginController extends HttpServlet {
 
 		try {
 			if (empService.isEmployeeExist(pojo) != null) {
-				if (empService.findAdminEmployee(pojo) != null) {
-					if (empService.findAdminEmployee(pojo).isAdmin() == WebConstant.ROLE_ADMIN) {
+				if (empService.checkEmployeeIsAdmin(pojo) != null) {
+					if (empService.checkEmployeeIsAdmin(pojo).isAdmin() == WebConstant.ROLE_ADMIN) {
 						response.sendRedirect("admin-home.html");
-					} else if (empService.findAdminEmployee(pojo).isAdmin() == WebConstant.ROLE_USER) {
-						response.sendRedirect("home.html");
+					} else if (empService.checkEmployeeIsAdmin(pojo).isAdmin() == WebConstant.ROLE_USER) {
+						response.sendRedirect("list.html");
 					}
 				}
 			}

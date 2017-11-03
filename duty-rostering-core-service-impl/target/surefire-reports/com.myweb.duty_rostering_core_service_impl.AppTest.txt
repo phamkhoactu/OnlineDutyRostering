@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.myweb.duty_rostering_core_service_impl.AppTest
 -------------------------------------------------------------------------------
-Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.304 sec
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.286 sec

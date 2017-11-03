@@ -13,7 +13,7 @@ import com.myweb.core.persistence.entity.EmployeeEntity;
 public class EmployeeDaoImpl extends AbstractDao<Short, EmployeeEntity> implements EmployeeDao {
 
 	@Override
-	public EmployeeEntity isEmployeeExist(String username, String password) {
+	public EmployeeEntity findEmployeeByUsernameAndPassword(String username, String password) {
 		EmployeeEntity entity = null;
 		Transaction transaction = null;
 		Session session = null;
@@ -41,7 +41,7 @@ public class EmployeeDaoImpl extends AbstractDao<Short, EmployeeEntity> implemen
 	}
 
 	@Override
-	public EmployeeEntity findAdminEmployee(String username, String password) {
+	public EmployeeEntity checkEmployeeIsAdmin(String username, String password) {
 		EmployeeEntity entity = null;
 		Transaction transaction = null;
 		Session session = null;
