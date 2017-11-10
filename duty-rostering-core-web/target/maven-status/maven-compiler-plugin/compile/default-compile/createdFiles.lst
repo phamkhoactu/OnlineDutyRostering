@@ -1,4 +1,5 @@
 com\myweb\core\web\utils\RequestUtil.class
+com\myweb\core\web\utils\WebCommonUtil.class
 com\myweb\core\web\utils\FormUtil.class
 com\myweb\core\web\common\WebConstant.class
 com\myweb\core\web\utils\TestUtils.class

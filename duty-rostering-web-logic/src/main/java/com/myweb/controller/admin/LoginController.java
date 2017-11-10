@@ -43,9 +43,9 @@ public class LoginController extends HttpServlet {
 		try {
 			if (empService.isEmployeeExist(pojo) != null) {
 				if (empService.checkEmployeeIsAdmin(pojo) != null) {
-					if (empService.checkEmployeeIsAdmin(pojo).isAdmin() == WebConstant.ROLE_ADMIN) {
+					if (empService.checkEmployeeIsAdmin(pojo).getIsAdmin() == WebConstant.ROLE_ADMIN) {
 						response.sendRedirect("admin-home.html");
-					} else if (empService.checkEmployeeIsAdmin(pojo).isAdmin() == WebConstant.ROLE_USER) {
+					} else if (empService.checkEmployeeIsAdmin(pojo).getIsAdmin() == WebConstant.ROLE_USER) {
 						response.sendRedirect("list.html");
 					}
 				}

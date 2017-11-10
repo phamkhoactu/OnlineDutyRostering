@@ -13,8 +13,8 @@ public class EmployeeBeanUtils {
 		dto.setPassword(entity.getPassword());
 		dto.setFullName(entity.getFullName());
 		dto.setCreateDate(entity.getCreateDate());
-		dto.setAdmin(entity.isIsAdmin());
-		dto.setActive(entity.isIsActive());
+		dto.setIsAdmin(entity.isIsAdmin());
+		dto.setIsActive(entity.isIsActive());
 
 		return dto;
 	}
@@ -26,9 +26,10 @@ public class EmployeeBeanUtils {
 		entity.setPassword(dto.getPassword());
 		entity.setFullName(dto.getFullName());
 		entity.setCreateDate(dto.getCreateDate());
-		entity.setIsAdmin(dto.isAdmin());
-		entity.setIsActive(dto.isActive());
+		entity.setIsAdmin(dto.getIsAdmin());
+		entity.setIsActive(dto.getIsActive());
 
 		return entity;
 	}
+
 }

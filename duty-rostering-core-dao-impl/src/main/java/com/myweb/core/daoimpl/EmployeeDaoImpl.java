@@ -68,4 +68,6 @@ public class EmployeeDaoImpl extends AbstractDao<Short, EmployeeEntity> implemen
 		return entity;
 	}
 
+	
+
 }

@@ -1,9 +1,10 @@
 package com.myweb.core.persistence.entity;
 
+import java.sql.Timestamp;
+
 // default package
 // Generated 25-Oct-2017 23:46:53 by Hibernate Tools 5.2.5.Final
 
-import java.util.Date;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -26,7 +27,7 @@ public class EmployeeEntity {
 	private String username;
 	private String password;
 	private String fullName;
-	private Date createDate;
+	private Timestamp createDate;
 	private boolean isActive;
 	private boolean isAdmin;
 	private List<RosterEntity> rosterEntities;
@@ -34,7 +35,7 @@ public class EmployeeEntity {
 	public EmployeeEntity() {
 	}
 
-	public EmployeeEntity(short empId, String username, String password, String fullName, Date createDate,
+	public EmployeeEntity(short empId, String username, String password, String fullName, Timestamp createDate,
 			boolean isActive, boolean isAdmin) {
 		this.empId = empId;
 		this.username = username;
@@ -45,7 +46,7 @@ public class EmployeeEntity {
 		this.isAdmin = isAdmin;
 	}
 
-	public EmployeeEntity(short empId, String username, String password, String fullName, Date createDate,
+	public EmployeeEntity(short empId, String username, String password, String fullName, Timestamp createDate,
 			boolean isActive, boolean isAdmin, List<RosterEntity> rosterEntities) {
 		this.empId = empId;
 		this.username = username;
@@ -95,13 +96,13 @@ public class EmployeeEntity {
 		this.fullName = fullName;
 	}
 
-	@Temporal(TemporalType.DATE)
+	
 	@Column(name = "CREATE_DATE", nullable = false, length = 10)
-	public Date getCreateDate() {
+	public Timestamp getCreateDate() {
 		return this.createDate;
 	}
 
-	public void setCreateDate(Date createDate) {
+	public void setCreateDate(Timestamp createDate) {
 		this.createDate = createDate;
 	}
 

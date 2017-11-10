@@ -1,7 +1,7 @@
 package com.myweb.core.dto;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.sql.Timestamp;
 
 import javax.persistence.Column;
 
@@ -10,9 +10,9 @@ public class EmployeeDTO implements Serializable {
 	private String username;
 	private String password;
 	private String fullName;
-	private Date createDate;
-	private boolean isActive;
+	private Timestamp createDate;
 	private boolean isAdmin;
+	private boolean isActive;
 
 	public short getEmpId() {
 		return empId;
@@ -46,27 +46,27 @@ public class EmployeeDTO implements Serializable {
 		this.fullName = fullName;
 	}
 
-	public Date getCreateDate() {
+	public Timestamp getCreateDate() {
 		return createDate;
 	}
 
-	public void setCreateDate(Date createDate) {
-		this.createDate = createDate;
+	public void setCreateDate(Timestamp createdDate) {
+		this.createDate = createdDate;
 	}
 
-	public boolean isActive() {
+	public boolean getIsActive() {
 		return isActive;
 	}
 
-	public void setActive(boolean isActive) {
+	public void setIsActive(boolean isActive) {
 		this.isActive = isActive;
 	}
 
-	public boolean isAdmin() {
+	public boolean getIsAdmin() {
 		return isAdmin;
 	}
 
-	public void setAdmin(boolean isAdmin) {
+	public void setIsAdmin(boolean isAdmin) {
 		this.isAdmin = isAdmin;
 	}
 

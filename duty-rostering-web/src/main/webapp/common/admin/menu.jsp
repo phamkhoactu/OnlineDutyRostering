@@ -1,6 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@include file="/common/taglib.jsp"%>
+<c:url value="admin-employee-list.html" var="adminEmployeeUrl">
+	<c:param name="urlType" value="url_list"></c:param>
+</c:url>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
 <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
 	<li class="nav-item" data-toggle="tooltip" data-placement="right"
 		title="Dashboard"><a class="nav-link" href="<c:url value="/admin-home.html"/>"> <i
@@ -14,7 +19,7 @@
 			class="fa fa-fw fa-table"></i> <span class="nav-link-text"><fmt:message key="label.employee" bundle="${lang}"/></span>
 	</a>
 		<ul class="sidenav-second-level collapse" id="collapseExamplePages">
-			<li><a href="<c:url value="/admin-employee-list.html"/>"><fmt:message key="label.employee.list" bundle="${lang}"/></a></li>
+			<li><a href="${adminEmployeeUrl}"><fmt:message key="label.employee.list" bundle="${lang}"/></a></li>
 			<li><a href="register.html">Registration Page</a></li>
 			<li><a href="forgot-password.html">Forgot Password Page</a></li>
 			<li><a href="blank.html">Blank Page</a></li>
@@ -42,7 +47,7 @@
 			class="fa fa-fw fa-table"></i> <span class="nav-link-text"><fmt:message key="label.roster" bundle="${lang}"/></span>
 	</a>
 		<ul class="sidenav-second-level collapse" id="collapseExamplePages">
-			<li><a href="<c:url value="/admin-roster-list.html"/>"><fmt:message key="label.manage.roster.list" bundle="${lang}"/></a></li>
+			<li><a href="${adminEmployeeUrl}"><fmt:message key="label.manage.roster.list" bundle="${lang}"/></a></li>
 			<li><a href="register.html">Registration Page</a></li>
 			<li><a href="forgot-password.html">Forgot Password Page</a></li>
 			<li><a href="blank.html">Blank Page</a></li>

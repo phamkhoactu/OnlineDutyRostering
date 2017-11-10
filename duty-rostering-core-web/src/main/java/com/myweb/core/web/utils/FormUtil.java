@@ -11,6 +11,7 @@ public class FormUtil {
 		T object = null;
 		try {
 			object = (T) clazz.newInstance();
+			
 			BeanUtils.populate(object, request.getParameterMap());
 		} catch (InstantiationException e) {
 			e.printStackTrace();
