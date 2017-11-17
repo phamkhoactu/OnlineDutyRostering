@@ -1,4 +1,4 @@
-USE dutyroastering;
+USE dutyrostering;
 
 
 drop table if exists ROSTER;
@@ -56,6 +56,9 @@ create table ROSTER(
  SHIFT_TYPE_ID smallint unsigned not null,
  primary key (EMP_ID, DATE_ID, SHIFT)
 );
+
+ALTER TABLE `dutyrostering`.`employee` 
+CHANGE COLUMN `EMP_ID` `EMP_ID` SMALLINT(5) UNSIGNED NOT NULL AUTO_INCREMENT ;  
  
 alter table ROSTER
     add constraint ROSTER_EMPLOYEE_FK
@@ -73,8 +76,7 @@ alter table ROSTER
     foreign key (SHIFT_TYPE_ID)
     references SHIFT_TYPE (SHIFT_TYPE_ID);
   
-ALTER TABLE `dutyrostering`.`employee` 
-CHANGE COLUMN `EMP_ID` `EMP_ID` SMALLINT(5) UNSIGNED NOT NULL AUTO_INCREMENT ;  
+
   
     
 delimiter //
@@ -84,42 +86,23 @@ drop procedure if exists PopulateDateDimension//
 CREATE PROCEDURE PopulateDateDimension(BeginDate DATETIME, EndDate DATETIME)
 BEGIN
 
- # =============================================
- # Description: http://arcanecode.com/2009/11/18/populating-a-kimball-date-dimension/
- # =============================================
-
- # A few notes, this code does nothing to the existing table, no deletes
- # are triggered before hand. Because the DateKey is uniquely indexed,
- # it will simply produce errors if you attempt to insert duplicates.
- # You can however adjust the Begin/End dates and rerun to safely add
- # new dates to the table every year.
- #
- # If the begin date is after the end date, no errors occur but nothing
- # happens as the while loop never executes.
-
- # Holds a flag so we can determine if the date is the last day of month
+ 
  DECLARE LastDayOfMon tinyint;
 
 
- # These two counters are used in our loop.
  DECLARE DateCounter DATETIME;    #Current date in loop
  
- # Start the counter at the begin date
  SET DateCounter = BeginDate;
 
  WHILE DateCounter <= EndDate DO
-            # Calculate the current Fiscal date as an offset of
-            # the current date in the loop
 
 
-            # Set value for IsLastDayOfMonth
             IF MONTH(DateCounter) = MONTH(DATE_ADD(DateCounter, INTERVAL 1 DAY)) THEN
                SET LastDayOfMon = 0;
             ELSE
                SET LastDayOfMon = 1;
    END IF;
 
-            # add a record into the date dimension table for this date
           INSERT  INTO DATE
       (DATE_ID,
 		FULL_DATE,
@@ -167,7 +150,6 @@ BEGIN
                     , YEAR(DateCounter) #CalendarYear
                     );
 
-            # Increment the date counter for next pass thru the loop
             SET DateCounter = DATE_ADD(DateCounter, INTERVAL 1 DAY);
       END WHILE;
 

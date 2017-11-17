@@ -15,19 +15,19 @@ public class LoginTest {
 	
 	
 	@Test
-	public void checkFindEmployeeByProperties(){
-		EmployeeDao empDao = new EmployeeDaoImpl();
-		Object[] result = empDao.findByProperty(null,null, null, null, 2, 3);	
-		if(result != null) {
-			log.error("findByProperties success");
-			System.out.println("-----------------------------------------");
-			List<EmployeeEntity> list = (List<EmployeeEntity>) result[1];
-			System.out.println(list.get(2).getFullName());
-			System.out.println("-----------------------------------------");
-		} else {
-			log.error("login fail");
-		}
-	}
+//	public void checkFindEmployeeByProperties(){
+//		EmployeeDao empDao = new EmployeeDaoImpl();
+//		//Object[] result = empDao.findByProperty(null,null, null, null, 2, 3);	
+//		if(result != null) {
+//			log.error("findByProperties success");
+//			System.out.println("-----------------------------------------");
+//			List<EmployeeEntity> list = (List<EmployeeEntity>) result[1];
+//			System.out.println(list.get(2).getFullName());
+//			System.out.println("-----------------------------------------");
+//		} else {
+//			log.error("login fail");
+//		}
+//	}
 	
 	
 	
